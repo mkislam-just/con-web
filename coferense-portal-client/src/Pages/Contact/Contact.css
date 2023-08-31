@@ -1,0 +1,10 @@
+.contactBG{
+    background-color: #4b5769;
+}
+.form-label {
+    margin-bottom: .5rem;
+}
+label {
+    display: inline-block;
+    color: #fff;
+}
