@@ -1,0 +1,36 @@
+/* .forOverlay{
+  opacity: 0.8;
+  background-color: rgba(0, 0, 0, 0.7);
+} */
+
+
+#carouselExampleDark p{
+  backdrop-filter: blur(0px) brightness(50%);
+  width: fit-content;
+  margin: auto;
+  border-radius: 10px;
+}
+/* #carouselExampleDark img{
+    animation: zoom-in-zoom-out 10s ease infinite;
+} */
+#carouselExampleDark h6{
+  font-size: 20px;
+  margin: 25px 0px;
+}
+.carousel-caption svg{
+  color: #1d1d1b;
+  font-size: 30px !important;
+}
+
+@keyframes zoom-in-zoom-out {
+    0% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1.5, 1.5);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+}
+  

@@ -1,0 +1,64 @@
+.BGC{
+  background-color: #f5f5f5;
+}
+.paginationBtn{
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-self: center;
+  
+}
+.card-body{
+  font-family: cursive;
+}
+.cd-header{
+  font-family: system-ui;
+  margin-left: 16px;
+  border-bottom: 3px solid black;
+  display: inline-block;
+}
+.paginationBtn a{
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid rgb(92, 103, 93);
+  cursor: pointer;
+  font-family: sans-serif;
+  font-weight: 700;
+}
+.paginationBtn a:hover{
+  color: black;
+  background: #989fba;
+}
+.paginationActive a {
+  background: #717790;
+  color: #fff;
+
+}
+.nextBtn {
+  text-decoration: none;
+  color: black;
+}
+.PreviousBtn {
+  text-decoration: none;
+  color: black;
+}
+.ul-center ul{
+  justify-content: center;
+}
+
+.buttons button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: #ff385c;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+}
+
+
+
+
+
+
+
