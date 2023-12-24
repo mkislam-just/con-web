@@ -1,26 +1,24 @@
 import React from 'react';
-
 const Service = (props) => {
 
-    const { fileURL, description, title } = props.service;
+    const { fileURL, abstract, title, paperDomain, createdAt } = props.service;
     console.log(fileURL);
     return (
 
-        <div className='col-md-4 card'>
+        <div className='card p-2 m-2' style={{ width: "48%" }}>
 
-            
-            <p></p>
-
-
-            <div class="card text-center">
+            <div class="card-block">
                 <div class="card-header">
-                    <h3>{title}</h3>
+                    <strong className=''>{title}</strong>
+                    <h6 className='mt-2'>Paper-domain : {paperDomain}</h6>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">{description}</p>
+                    <p class="abstract-text">{abstract}</p>
                 </div>
-                <div class="card-footer text-muted">
-                <p>Open a PDF file <a class="btn btn-primary" href={`http://localhost:8080/${fileURL}`}>Open</a>.</p>
+                <div class="text-muted">
+                    <p>Created at : {createdAt}</p>
+
+                    <p>Open as PDF file : <a class="btn btn-primary" href={`http://localhost:8080/${fileURL}`}>Open</a>.</p>
                 </div>
             </div>
 

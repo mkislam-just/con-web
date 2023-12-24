@@ -4,18 +4,17 @@ import { Outlet } from 'react-router-dom';
 import items from '../../asset/FakeData/SideNavbarForReviewer.json';
 import HomeNavBar from '../Shared/HomeNavBar/HomeNavBar';
 import SideBarMain from '../Shared/SideNavbar/SideBarMain';
+import './ReviewerOutlet.css'
 
 const ReviewerOutlet = () => {
     return (
         <div>
-            <div className="row">
+            <div className="d-flex ">
                 <HomeNavBar />
-                <div className="col-2">
-                    <div className="sidebar">
+                <div className="sidebar">
                         {items.map((item, index) => <SideBarMain key={index} item={item} />)}
-                    </div>
                 </div>
-                <div className="col-10">
+                <div className='ReviewerMainComponent'>
                     <Outlet />
                 </div>
 

@@ -44,7 +44,9 @@ const ManageReviewer = () => {
         })
     }
     return (
-        <>
+        <div className='AdminList'>
+            <div className='container'>
+            <h4 className='text-center'> Reviewer List </h4>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -70,8 +72,9 @@ const ManageReviewer = () => {
 
                 </tbody>
             </table>
+            </div>
 
-        </>
+        </div>
     );
 };
 

@@ -37,14 +37,27 @@ import AssignPaperToReviewer from './Pages/TractChair/AssignPaperToReviewer/Assi
 import ManageCommittee from './Pages/TractChair/ManageCommittee/ManageCommittee';
 import DisplayCommittee from './Pages/DisplayCommittee/DisplayCommittee';
 const RouteJSX = (
+
     <>
         <>
             <Route>
 
                 <Route path="/" element={<BasicRoute />}>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/home" element={<HomePage />} />
-                    <Route path="/dates" element={<ImportantDates />} />
+                    <Route path="/"
+                        loader={({ request }) =>
+                            fetch("http://localhost:8080/api/v1", {
+                                signal: request.signal,
+                            })
+                        }
+                        element={<HomePage />} />
+                    {/* <Route path="/home" element={<HomePage />} /> */}
+                    <Route path="/dates"
+                        loader={({ request }) =>
+                            fetch("http://localhost:8080/api/v1/get-date", {
+                                signal: request.signal,
+                            })
+                        }
+                        element={<ImportantDates />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/login" element={<LogIn />} />
                     <Route path="/sign-up" element={<SignUp />} />

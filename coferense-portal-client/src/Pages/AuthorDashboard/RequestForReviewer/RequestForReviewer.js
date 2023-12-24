@@ -22,8 +22,9 @@ const RequestForReviewer = () => {
             description
         }
 
-        console.log(contact);
-        const res = await reviewerServices.postReviewer(contact)
+        
+        const res = await reviewerServices.postReviewer(contact);
+        console.log(res,"ressssssssssss");
         if (res) {
             Swal.fire({
                 position: 'top-end',

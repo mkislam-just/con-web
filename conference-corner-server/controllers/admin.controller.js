@@ -86,16 +86,38 @@ exports.HomePageContentController = async (req, res, next) => {
         if(!content){
             return res.send({code: 400, massage: "Bad Request"})
         }
-        const registeredInfo = await adminServices.HomePageContentCreatingService({'content': content});
+        const registeredInfo = await adminServices.HomePageContentService({'content': content});
         res.status(200).json({
             status: "success",
-            message: "Admin is added successfully",
+            message: "Conference Massage is added successfully",
             data: registeredInfo
         })
     } catch (err) {
         res.status(400).json({
             status: "Fail",
-            message: "Admin Couldn't added Successfully",
+            message: "Conference Massage Couldn't added Successfully",
+            error: err,
+            
+        })
+    }
+};
+exports.UpdateDateController = async (req, res, next) => {
+    try {
+        const dateInfo =req.body;
+        console.log("Update Date",dateInfo);
+        if(!dateInfo){
+            return res.send({code: 400, massage: "Bad Request"})
+        }
+        const ConferenceInfo = await adminServices.updateDateService(dateInfo);
+        res.status(200).json({
+            status: "success",
+            message: "Conference Date is added successfully",
+            data: ConferenceInfo
+        })
+    } catch (err) {
+        res.status(400).json({
+            status: "Fail",
+            message: "Conference Date Couldn't added Successfully",
             error: err,
             
         })

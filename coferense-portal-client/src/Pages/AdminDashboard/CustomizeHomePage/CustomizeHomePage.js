@@ -1,6 +1,7 @@
 import React from 'react';
 import adminServices from '../../../Services/makeAdmin';
 import Swal from 'sweetalert2';
+import './CustomizeHomePage.css';
 
 const CustomizeHomePage = () => {
     const handleSubmit = async (event) =>{
@@ -12,7 +13,7 @@ const CustomizeHomePage = () => {
         }
 
 
-        const res = await adminServices.postHomeMassage(content)
+        const res = await adminServices.UpdateHomeMassage(content)
         if(res){
             Swal.fire(
                 'Uploaded!',
@@ -24,9 +25,10 @@ const CustomizeHomePage = () => {
         
     }
     return (
-        <div className='container'>
+        <div className='container customizeHomePage'>
+            <h4 className='text-center'>Update Important Dates </h4>
             <form onSubmit={handleSubmit} class="ml-auto mr-auto mb-3">
-                <label for="inputMassage" class="form-label  text-dark"><strong>Customize HomePage :</strong>
+                <label for="inputMassage" class="form-label  text-dark ms-4"><strong>Customize HomePage :</strong>
                 </label>
                 <section className='container px-5'>
                     <textarea required="" name="homeContent" type="text" class="form-control" id="inputMassage" placeholder="Your Massage" style={{ height: "250px" }}>

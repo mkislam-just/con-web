@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import './TrackChairHomePage.css'
 import { Link, useLoaderData } from 'react-router-dom';
 import OpenModalByReviewer from '../../ReviewerDashboard/OpenModalByReviewer/OpenModalByReviewer';
 import ReactPaginate from 'react-paginate';
+
 // import Select from 'react-select';
 
 const TractChair = () => {
@@ -31,15 +33,16 @@ const TractChair = () => {
     const displayPaper = paginatePaper.map((paper, index) => {
         return (
 
-            <>
-                <div class="card p-2 m-2" style={{ width: "48%" }}>
+            <div className='col-md-4'>
+
+                <div class="card p-2 m-2">
                     <div class="card-block">
                         <div>
-                            <h3 className='cd-header'>{paper.title}</h3>
+                            <h6 className='cd-header'>{paper.title}</h6>
                         </div>
 
                         <div className='card-body'>
-                            <p class="card-subtitle">{paper.abstract}</p>
+                            <p class="abstract-text">{paper.abstract}</p>
                         </div>
                         <div className='text-end'>
                             {/* <!-- Button trigger modal --> */}
@@ -76,7 +79,7 @@ const TractChair = () => {
                 {/* <!-- Modal --> */}
                 <OpenModalByReviewer paper={paper} state={state}></OpenModalByReviewer>
 
-            </>
+            </div>
         )
     });
     const pageCount = Math.ceil(PaperList.length / papersPerPage);
@@ -84,8 +87,9 @@ const TractChair = () => {
         setPageNumber(selected)
     }
     return (
-        <div >
-            <div className='container d-flex ms-1 BGC'>
+        <div className='TitleForCreatingCommittee'>
+            <h4 className='text-center'> Paper List </h4>
+            <div className='container row ms-1'>
                 {displayPaper}
             </div>
             <div className='ul-center my-3'>

@@ -1,10 +1,10 @@
 const ReviewersList = require("../models/reviewerlist.model")
 const RequestedReviewers = require("../models/requestedReviewers.model")
-
+const AuthorSubmit = require("../models/authorSubmit.model")
 exports.createReviewerService = async (info) => {
-    console.log('reviewerInfo from services',info);
-    const submitInfo = await reviewerModel.create(info);
     
+    const submitInfo = await RequestedReviewers.create(info);
+    console.log('reviewerInfo from services',submitInfo);
     return submitInfo;
 };
 exports.createSelectedReviewerService = async (info) => {
@@ -39,4 +39,16 @@ exports.deleteReviewerByIdService = async (email) => {
     const submitInfo = await RequestedReviewers.deleteOne({"email" : email});
     console.log('from review services deleteReviewerByIdService- DeleteInfo ---',submitInfo);
     return submitInfo;
+};
+exports.assigningPaperToReviewerService = async (paperID,info) => {
+    console.log('from review services assigningPaperToReviewerService-----',paperID,info);
+    const result = await AuthorSubmit.updateOne({ _id: paperID }, {$set:{assignedReviewer: info}})
+    console.log('from review services assigningPaperToReviewerService----',result);
+    return result;
+};
+exports.uploadReviewService = async (paperID,info) => {
+    console.log('from review services assigningPaperToReviewerService-----',paperID,info);
+    const result = await AuthorSubmit.updateOne({ _id: paperID }, {$set:{review : info}})
+    console.log('from review services assigningPaperToReviewerService----',result);
+    return result;
 };

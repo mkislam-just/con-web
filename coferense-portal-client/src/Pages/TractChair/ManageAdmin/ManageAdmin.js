@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import AdminServices from '../../../Services/makeAdmin';
+import './ManageAdmin.css'
 const ManageAdmin = () => {
     const adminList = useLoaderData()
     const [adminsList, setAdminsList] = useState(adminList.data)
-    const removeReviewer = async (email) =>{
+    const removeReviewer = async (email) => {
 
 
         Swal.fire({
@@ -18,7 +19,7 @@ const ManageAdmin = () => {
             confirmButtonText: 'Yes !'
         }).then(async (result) => {
             if (result.isConfirmed) {
-                const res = await  AdminServices.RemoveAdminByEmail(email);
+                const res = await AdminServices.RemoveAdminByEmail(email);
 
                 if (res) {
                     Swal.fire(
@@ -43,32 +44,35 @@ const ManageAdmin = () => {
         })
     }
     return (
-        <>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody>{
-                    adminsList.map((admin, index) => {
-                        return (
-                            <tr>
-                                <th scope="row">{index + 1}</th>
-                                <td>{admin.email}</td>
-                                <td><button type="button" class="btn btn-danger" onClick={()=>removeReviewer(admin.email)}>Remove</button></td>
-                            </tr>
-                        )
+        <div className='AdminList'>
+            <h4 className='text-center'> Admin List </h4>
+            <div className='container'>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Handle</th>
+                        </tr>
+                    </thead>
+                    <tbody>{
+                        adminsList.map((admin, index) => {
+                            return (
+                                <tr>
+                                    <th scope="row">{index + 1}</th>
+                                    <td>{admin.email}</td>
+                                    <td><button type="button" class="btn btn-danger" onClick={() => removeReviewer(admin.email)}>Remove</button></td>
+                                </tr>
+                            )
 
-                    })
-                }
+                        })
+                    }
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
 
-        </>
+        </div>
     );
 };
 

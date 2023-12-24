@@ -1,5 +1,6 @@
 const HomePageMassage = require("../models/HomePageContentModel");
-const adminModel = require("../models/makeAdmin.model")
+const adminModel = require("../models/makeAdmin.model");
+const Dates = require("../models/ConferenceDate.model");
 
 exports.createAdminService = async ({ 'email': email }) => {
     const submitInfo = await adminModel.create({ 'email': email });
@@ -24,8 +25,13 @@ exports.removeAdminByEmailService = async (email) => {
     console.log('from admin services removeAdminByEmailService- DeleteInfo ---',submitInfo);
     return submitInfo;
 };
-exports.HomePageContentCreatingService = async ({ 'content': content }) => {
-    const submitInfo = await HomePageMassage.create({ 'content': content });
+exports.HomePageContentService = async ({ 'content': content }) => {
+    const submitInfo = await HomePageMassage.updateOne({}, {$set:{ 'content': content }});
     console.log("HomePage Massage",submitInfo);
+    return submitInfo;
+};
+exports.updateDateService = async (dateInfo) => {
+    const submitInfo = await Dates.updateOne({}, {$set: dateInfo});
+    console.log("Date Services",submitInfo);
     return submitInfo;
 };

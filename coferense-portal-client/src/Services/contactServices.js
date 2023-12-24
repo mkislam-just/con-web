@@ -6,6 +6,7 @@ class ContactServices {
         return requests.get('/contact');
     }
     postContact(body) {
+        
         return requests.post('/contact', body);
     }
 }

@@ -3,7 +3,7 @@ import React from "react";
 function PaperInfo({ formData, setFormData, wordLimit , setWordLimit , setIsValid, isValid  }) {
 
   return (
-    <div className="w-70 m-auto  authorContainer my-5">
+    <div className="w-70 m-auto  authorContainer my-4">
       <div>
         <label className="mt-3 text-dark"><strong>Title : </strong> </label>
         <input

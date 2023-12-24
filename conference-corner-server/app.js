@@ -9,7 +9,7 @@ const adminRoute = require('./Routes/v1/admin.route');
 const reviewerRoute = require('./Routes/v1/reviewer.route');
 const signUpRoute = require('./Routes/v1/signUp.route');
 const committeeRoute = require('./Routes/v1/createCommittee.route');
-
+const utilitiesRoute = require('./Routes/v1/utilities.route')
 
 app.use(express.json());
 app.use(cors());
@@ -41,6 +41,7 @@ app.use('/api/v1/admin', adminRoute);
 app.use('/api/v1/reviewer', reviewerRoute);
 app.use('/api/v1/create-committee', committeeRoute);
 app.use('/api/v1/sign-up', signUpRoute);
+app.use('/api/v1', utilitiesRoute);
 
 
 app.get("/", (req, res) => {

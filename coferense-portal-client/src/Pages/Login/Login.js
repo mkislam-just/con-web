@@ -91,7 +91,7 @@ const LogIn = () => {
     return (
         <div className="my-5">
 
-            <div className="loginComponent">
+            <div className="loginComponent py-3">
                 <div className="text-center loginStyle">
                     <h2 className="text-muted"> <i class="bi bi-box-arrow-in-right text-muted"></i> Log In </h2>
                     <form onSubmit={handleLogIn}>

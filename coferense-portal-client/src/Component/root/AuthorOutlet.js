@@ -5,15 +5,16 @@ import Footer from '../Shared/Footer/Footer';
 import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 import items from '../../asset/FakeData/SideNavbarForAuthor.json'
 import SideBarMain from '../Shared/SideNavbar/SideBarMain';
+import './AuthorOutlet.css'
 
 const AuthorOutlet = () => {
     const { reviewer } = useContext(AuthContext);
     return (
         <div>
-            <div className="row">
+            <div className="">
                 <HomeNavBar />
-                <div className="col-2">
-                    <div className="sidebar">
+                <div className="">
+                    <div className="AuthorSidebar">
                         {items.map((item, index) => <SideBarMain key={index} item={item} />)}
                         {reviewer?.length ? '' : <div
                             className="px-2 d-flex align-items-center" >
@@ -24,7 +25,7 @@ const AuthorOutlet = () => {
                     </div>
 
                 </div>
-                <div className="col-10">
+                <div className="ReviewerMainComponent">
                     <Outlet />
                 </div>
 

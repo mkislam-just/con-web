@@ -11,7 +11,7 @@ const TractPrivateRoute = ({children}) => {
         return <progress className="progress w-56"></progress>
     }
 
-    if (loggedUser?.email==='shongkortalukdar2017@gmail.com'){
+    if (loggedUser?.email==='shongkortalukdar2017@gmail.com' || loggedUser?.email==='mk.islam@just.edu.bd'){
         return children;
     }else{
         Swal.fire({
@@ -25,7 +25,7 @@ const TractPrivateRoute = ({children}) => {
     }
 
 
-    return <Navigate to="/home" replace></Navigate>
+    return <Navigate to="/" replace></Navigate>
     
     
 };

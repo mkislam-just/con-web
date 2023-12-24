@@ -47,6 +47,62 @@ exports.CreateSelectedReviewerController = async (req, res, next) => {
         })
     }
 };
+exports.UpdatePaperToAssigningReviewerController = async (req, res, next) => {
+    try {
+
+        const {id } = req.params
+
+        const info = req.body
+        if(!info[0].value){
+            return res.send({code: 400, massage: "Bad Request"})
+        }
+
+        const registeredInfo = await reviewerServices.assigningPaperToReviewerService(id, info);
+            res.status(200).json({
+                status: "success",
+                message: "Reviewer is added successfully to Paper",
+                data: registeredInfo
+            })
+
+
+    } catch (err) {
+        res.status(400).json({
+            status: "Fail",
+            message: "Reviewer Couldn't added Successfully to Paper",
+            error: err,
+            
+        })
+    }
+};
+exports.UploadingReviewController = async (req, res, next) => {
+    try {
+
+        const {id } = req.params
+
+        const info = req.body
+
+        console.log("UploadingReviewController", id, info);
+        // if(!info[0].value){
+        //     return res.send({code: 400, massage: "Bad Request"})
+        // }
+
+        const registeredInfo = await reviewerServices.uploadReviewService(id, info);
+            res.status(200).json({
+                status: "success",
+                message: "Reviewer is added successfully to Paper",
+                data: registeredInfo
+            })
+
+
+    } catch (err) {
+        res.status(400).json({
+            status: "Fail",
+            message: "Reviewer Couldn't added Successfully to Paper",
+            error: err,
+            
+        })
+    }
+};
 exports.GetReviewerController = async (req, res, next) => {
     try {
         const email =req.body.email;

@@ -89,7 +89,7 @@ function Form() {
 
       <div className="">
         <div className="header">
-          <h1>{FormTitles[page]}</h1>
+          <h2>{FormTitles[page]}</h2>
           <div className="progressbar">
             <div
               style={{ width: page === 0 ? "33.3%" : page == 1 ? "66.6%" : "100%" }}

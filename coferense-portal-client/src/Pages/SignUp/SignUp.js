@@ -105,7 +105,7 @@ const SignUp = () => {
     return (
 
 
-        <div className=''>
+        <div className='SignUpContainer'>
             <div className="text-center regFormColor py-3">
                 <h3 className='signUp'> <img src="./sign-up-icon-5.png" alt="icon" className='signUpImg' /> Sign Up </h3>
 

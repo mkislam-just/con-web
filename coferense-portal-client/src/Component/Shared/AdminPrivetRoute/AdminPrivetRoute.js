@@ -26,7 +26,7 @@ const AdminPrivetRoute =  ({children}) => {
           })
     }    
 
-    return <Navigate to="/home" replace></Navigate>
+    return <Navigate to="/" replace></Navigate>
     
     
 };

@@ -19,6 +19,11 @@ const requests = {
         console.log(res);
         return response(res);
     },
+    patch : async (url,body) =>{
+        const res = await instance.patch(url, body);
+        console.log(res);
+        return response(res);
+    },
     delete : async (url) =>{
         const res = await instance.delete(url);
         console.log(res);

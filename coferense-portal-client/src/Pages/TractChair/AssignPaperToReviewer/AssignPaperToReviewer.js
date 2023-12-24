@@ -1,16 +1,34 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useLocation, useParams } from 'react-router-dom';
 import Select from 'react-select';
+import trackChairServices from '../../../Services/trackChairServices';
 
 const AssignPaperToReviewer = () => {
     const loadedUser = useLoaderData();
-    const [reviewersList, setReviewersList] = useState(loadedUser.data)
+    const {_id} = useParams()
+    let { state } = useLocation();
+    const [perticularPaperInfo, setPerticularPaperInfo] = useState(state.paper.assignedReviewer);
+    const [reviewersList, setReviewersList] = useState(loadedUser.data);
     const options = []
     reviewersList.map(d => options.push({ value: d.email, label: d.name }))
 
     const [assignedReviewerList, setAssignedReviewersList] = useState([])
     const handleChange = (reviewerEmail) => {
         setAssignedReviewersList(reviewerEmail)
+    }
+    const handleAssigningPaperToReviewer = async(assignedReviewerList) =>{
+        
+
+        const res = await trackChairServices.updatePaperAssigningReviewer(_id,assignedReviewerList)
+
+        const paperInfo = await trackChairServices.getPaperById(_id)
+        
+        setPerticularPaperInfo(paperInfo.data[0].assignedReviewer)
+        console.log("paperById", perticularPaperInfo);
+        
+        if(res.status === "success"){
+            console.log("response from backend of handleAssigningPaperToReviewer",res);
+        }
     }
     return (
         <>
@@ -29,7 +47,7 @@ const AssignPaperToReviewer = () => {
 
             </div>
             <div className='text-end'>
-                <button type="button" class="btn btn-primary btn-sm me-5 mb-5 mt-2"> Assign </button>
+                <button type="button" class="btn btn-primary btn-sm me-5 mb-5 mt-2" onClick={() => handleAssigningPaperToReviewer(assignedReviewerList)}> Assign </button>
             </div>
             <table class="table table-hover">
                 <thead>
@@ -41,12 +59,12 @@ const AssignPaperToReviewer = () => {
                     </tr>
                 </thead>
                 <tbody>{
-                    reviewersList.map((reviewer, index) => {
+                    perticularPaperInfo.map((reviewer, index) => {
                         return (
                             <tr>
                                 <th scope="row">{index + 1}</th>
-                                <td>{reviewer.name}</td>
-                                <td>{reviewer.email}</td>
+                                <td>{reviewer.label}</td>
+                                <td>{reviewer.value}</td>
                                 {/* <td><button type="button" class="btn btn-danger" onClick={()=>removeReviewer(reviewer.email)}> Assign </button></td> */}
                                 <td><button type="button" class="btn btn-danger"> Remove </button></td>
                             </tr>

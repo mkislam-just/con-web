@@ -7,5 +7,7 @@ router.route("/get-admin").post(adminController.GetAdminController);
 router.route("/").get(adminController.GetAdminController);
 router.route("/admin-list").get(adminController.GetAdminListController);
 router.route("/admin-list/:email").delete(adminController.removeAdminByEmailController);
-router.route("/home-content").post(adminController.HomePageContentController);
+router.route("/home-content").patch(adminController.HomePageContentController);
+router.route("/update-date").patch(adminController.UpdateDateController);
+
 module.exports = router;

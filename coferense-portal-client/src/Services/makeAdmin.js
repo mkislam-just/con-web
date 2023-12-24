@@ -17,10 +17,15 @@ class AdminServices {
         console.log('body',email);
         return requests.delete(`/admin/admin-list/${email}`);
     }
-    postHomeMassage(body) {
+    UpdateHomeMassage(body) {
         console.log(body);
-        return requests.post('/admin/home-content', body);
+        return requests.patch('/admin/home-content', body);
     }
+    UpdateDate(body) {
+        console.log(body);
+        return requests.patch('/admin/update-date', body);
+    }
+
 }
 
 

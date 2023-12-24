@@ -16,12 +16,15 @@ const HomeNavBar = () => {
         <div className='my-3'>
             <div className='NavContainer'>
                 <nav className="navbar navbar-expand-lg text-center">
-                    <div className="container">
+                    <div className="ms-auto">
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
                         <div className="collapse navbar-collapse " id="navbarNav">
+                            <div>
+                                <img className='logo' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX_klVntvTZBrSSprLC8Yj4CLrTmBc_jjv1g&usqp=CAU" alt="" />
+                            </div>
                             <ul className="navbar-nav m-auto">
                                 <li className="nav-item">
                                     <Link className="nav-link" to='/'>Home</Link>

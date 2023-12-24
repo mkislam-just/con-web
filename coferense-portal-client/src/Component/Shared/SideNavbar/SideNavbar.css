@@ -15,7 +15,7 @@
   }
   
   .sidebar{
-    width: 260px;
+    width: 260px !important;
     flex-shrink: 0;
     /* background-color: rgba(22, 22, 22, 1); */
     height: 98%;
@@ -39,7 +39,6 @@
   .sidebar-title{
     display: flex;
     font-size: 1.2em;
-    justify-content: space-between;
   }
   .sidebar-title span i{
     display: inline-block;
@@ -56,13 +55,14 @@
     padding-top: .25em;
     height: 0;
     overflow: hidden;
+    margin-top: auto;
   }
   .sidebar-item.open > .sidebar-content{
     height: auto;
   }
   
   .sidebar-item.plain{
-    color: #0c0c0c;
+    color: #ffffff;
     text-decoration: none;
   }
   .sidebar-item.plain:hover{

@@ -10,9 +10,9 @@ export default function SideNavbar() {
     <div className="sidebar">
       <section>
         <div class="dropdown px-2 my-3">
-          <i className='bi bi-person-plus'></i>
+          <i className='bi bi-person-plus ms-2'></i>
           <span
-            class="dropdown-toggle ms-3 p-2"
+            class="dropdown-toggle ms-1 p-2"
             id="dropdownMenuButton"
             data-mdb-toggle="dropdown"
             aria-expanded="false"
