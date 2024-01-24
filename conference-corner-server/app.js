@@ -35,7 +35,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage })
 
 
-app.use('/api/v1/contact', contactRoute);
+// app.use('/api/v1/contact', contactRoute);
 app.use('/api/v1/submit',upload.single('fileURL'), authorRoute);
 app.use('/api/v1/admin', adminRoute);
 app.use('/api/v1/reviewer', reviewerRoute);

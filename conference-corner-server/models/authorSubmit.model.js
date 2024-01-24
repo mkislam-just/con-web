@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 
-
+var validateEmail = function(email) {
+  var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  return re.test(email)
+};
 const AuthorSubmit = mongoose.Schema({
   title: String,
   abstract: String,
@@ -17,7 +20,15 @@ const AuthorSubmit = mongoose.Schema({
     reviewDate: String,
     Reviewer: {
       displayName: String,
-      email: String,
+      email: {
+        type: String,
+        trim: true,
+        lowercase: true,
+        unique: true,
+        required: 'Email address is required',
+        validate: [validateEmail, 'Please fill a valid email address'],
+        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+    },
       photoURL: String
     },
     reviewInfo: [
@@ -36,7 +47,15 @@ const AuthorSubmit = mongoose.Schema({
   author: [{
     firstName: String,
     lastName: String,
-    email: String,
+    email: {
+        type: String,
+        trim: true,
+        lowercase: true,
+        unique: true,
+        required: 'Email address is required',
+        validate: [validateEmail, 'Please fill a valid email address'],
+        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+    },
     affiliation: String,
     country: String,
     state: String,

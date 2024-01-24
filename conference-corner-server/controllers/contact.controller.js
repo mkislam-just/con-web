@@ -1,6 +1,6 @@
 const {
     createContactServices
-} = require("../Services/contact.services");
+} = require("../services/contact.services");
 
 exports.createContactController = async (req, res, next) => {
     try {

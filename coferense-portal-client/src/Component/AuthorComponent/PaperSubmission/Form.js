@@ -8,7 +8,7 @@ import { IoIosArrowBack } from 'react-icons/io'
 import { AiOutlineUserAdd } from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 
